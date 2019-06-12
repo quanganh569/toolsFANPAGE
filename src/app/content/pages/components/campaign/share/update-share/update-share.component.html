@@ -1,0 +1,64 @@
+<div class="container">
+    <h1>CẬP NHẬT</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Tên chiến dịch</label>
+          <input type="text" class="form-control" #name="ngModel" placeholder="Vui lòng nhập tên chiến dịch"
+            [(ngModel)]="nameCamp" name="name" required>
+          <div *ngIf="name.errors && (name.dirty || name.touched)" class="thongbao">
+            <div [hidden]="!name.errors.required">
+              <i class="fa fa-times-circle" style="color: red;size:12px"></i> Xin vui lòng nhập đủ dữ liệu!
+            </div>
+            <!-- <div [hidden]="!title.errors.minlength">
+                Title must be at least 5 characters long.
+              </div>
+              <div [hidden]="!title.errors.maxlength">
+                Title cannot be more than 30 characters long.
+              </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+          <div class="form-group">
+            <label>Link chiến dịch</label>
+            <input data-placement="top" title="Xin lỗi không thể sửa đường link chiến dịch" disabled="true" value="44" type="text" class="form-control" name="linkChiendich" [(ngModel)]="linkChiendich"
+              [ngModelOptions]="{standalone: true}" >
+          </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="sel1">Độ tuổi</label>
+          <select class="form-control" id="sel1" [(ngModel)]="age" [ngModelOptions]="{standalone: true}" required>
+            <option value="true">Từ 18 đến 20 tuổi </option>
+            <option value="false">Trên 20 tuổi</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-4">
+          <div class="form-group">
+            <label for="sel1">Giới tính</label>
+            <select class="form-control" id="sel1" [(ngModel)]="sex" [ngModelOptions]="{standalone: true}" required>
+              <option value="true">Nam</option>
+              <option value="false">Nữ</option>
+            </select>
+          </div>
+      </div>
+      <div class="col-md-4">
+        <label>Tổng số lượt review</label>
+        <input type="text" class="form-control" placeholder="Vui lòng nhập tổng số lượt bình luận" #num="ngModel"
+          [(ngModel)]="currentShare" name="num" required pattern="^[0-9]\d*$" />
+        <div *ngIf="num.errors && (num.dirty || num.touched)" class="thongbao">
+          <div [hidden]="!num.errors.required">
+            <i class="fa fa-times-circle" style="color: red;size:12px"></i> Xin vui lòng nhập đủ dữ liệu!
+          </div>
+          <div [hidden]="!num.errors.pattern">
+            <i class="fa fa-times-circle" style="color: red;size:12px"></i> Chỉ được nhập số
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-danger" (click)="updateShare()">Cập nhật</button>
+  </div>

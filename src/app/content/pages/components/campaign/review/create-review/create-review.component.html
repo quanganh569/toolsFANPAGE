@@ -1,0 +1,67 @@
+<div class="container">
+  <form (submit)="createReview(formCreate)" #formCreate="ngForm">
+    <h1>THÊM MỚI</h1>
+    <div class="row">
+      <div class="col">
+        <label>Tên chiến dịch</label>
+        <input type="text" class="form-control" #name="ngModel" placeholder="Vui lòng nhập tên chiến dịch"
+          [(ngModel)]="nameCamp" name="name" required>
+        <div *ngIf="name.errors && (name.dirty || name.touched)" class="thongbao">
+          <div [hidden]="!name.errors.required">
+            <i class="fa fa-times-circle" style="color: red;size:12px"></i> Xin vui lòng nhập đủ dữ liệu!
+          </div>
+          <!-- <div [hidden]="!title.errors.minlength">
+              Title must be at least 5 characters long.
+            </div>
+            <div [hidden]="!title.errors.maxlength">
+              Title cannot be more than 30 characters long.
+            </div> -->
+        </div>
+      </div>
+      <div class="col">
+        <label for="url">Link chiến dịch</label>
+        <input type="text" placeholder="Vui lòng nhập đường dẫn chiến dịch" #url="ngModel"
+          class="form-control " [(ngModel)]="linkChiendich" name="linkChiendich" required
+          pattern="https?://.+">
+        <div *ngIf="url.errors && (url.dirty || url.touched)" class="thongbao">
+          <div [hidden]="!url.errors.required">
+            <i class="fa fa-times-circle" style="color: red;size:12px"></i> Xin vui lòng nhập đủ dữ liệu!
+          </div>
+          <div [hidden]="!url.errors.pattern">
+            <i class="fa fa-times-circle" style="color: red;size:12px"></i> Phải là một đường dẫn hợp lệ
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <label>Tổng số lượt review</label>
+        <input type="text" class="form-control" placeholder="Vui lòng nhập tổng số lượt bình luận" #num="ngModel"
+          [(ngModel)]="currentShare" name="num" required pattern="^[0-9]\d*$" />
+        <div *ngIf="num.errors && (num.dirty || num.touched)" class="thongbao">
+          <div [hidden]="!num.errors.required">
+            <i class="fa fa-times-circle" style="color: red;size:12px"></i> Xin vui lòng nhập đủ dữ liệu!
+          </div>
+          <div [hidden]="!num.errors.pattern">
+            <i class="fa fa-times-circle" style="color: red;size:12px"></i> Chỉ được nhập số
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <label for="exampleTextarea">Nội dung đánh giá</label>
+    <textarea class="form-control" id="exampleTextarea" #title="ngModel" rows="5" [(ngModel)]="content" name="content"
+      required minlength="10" maxlength="30"></textarea>
+    <div *ngIf="title.errors && (title.dirty || title.touched)" class="thongbao">
+      <div [hidden]="!title.errors.required">
+        <i class="fa fa-times-circle" style="color: red;size:12px"></i> Xin vui lòng nhập đủ dữ liệu!
+      </div>
+      <div [hidden]="!title.errors.minlength">
+        <i class="fa fa-times-circle" style="color: red;size:12px"></i> Nội dung đánh giá tối thiểu 10 kí tự
+      </div>
+      <div [hidden]="!title.errors.maxlength">
+        <i class="fa fa-times-circle" style="color: red;size:12px"></i> Nội dung đánh giá tối đa 30 kí tự
+      </div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success" [disabled]="formCreate.invalid">Tạo mới</button>
+  </form>
+</div>

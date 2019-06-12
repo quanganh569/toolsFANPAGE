@@ -1,0 +1,91 @@
+<div class="container-fluid">
+  <div class="header-body">
+    <!-- Card stats -->
+    <div class="row">
+      <div class="col-xl-3 col-lg-6">
+        <div class="card card-stats mb-4 mb-xl-0">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">{{campBox?.name | uppercase}}</h5>
+                <span class="h1 font-weight-bold mb-0">{{campBox?.value}}</span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-success text-white rounded-circle shadow">
+                  <i class="fas fa-users" style="font-size:14px;"></i>
+                </div>
+              </div>
+            </div>
+            <p class="mt-3 mb-0 text-muted text-sm">
+              <span class="text-success mr-2"><i class="fa fa-arrow-right"></i></span>
+              <span class="text-nowrap">Đang thực hiện</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-6">
+        <div class="card card-stats mb-4 mb-xl-0">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">{{likeBox?.name | uppercase}}</h5>
+                <span class="h1 font-weight-bold mb-0">{{likeBox?.value | number: '1.0-3'}}</span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                  <i class="fas fa-thumbs-up"></i>
+                </div>
+              </div>
+            </div>
+            <p class="mt-3 mb-0 text-muted text-sm">
+              <span class="text-success mr-2"><i class="fas fa-arrow-right"></i></span>
+              <span class="text-nowrap">Đã thích</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-6">
+        <div class="card card-stats mb-4 mb-xl-0">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">{{shareBox?.name | uppercase}}</h5>
+                <span class="h1 font-weight-bold mb-0">{{shareBox?.value | number: '1.0-3'}}</span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                  <i class="fas fa-share-alt"></i>
+                </div>
+              </div>
+            </div>
+            <p class="mt-3 mb-0 text-muted text-sm">
+              <span class="text-success mr-2"><i class="fas fa-arrow-right"></i></span>
+              <span class="text-nowrap">Đã chia sẻ</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-6">
+        <div class="card card-stats mb-4 mb-xl-0">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">{{viewBox?.name | uppercase}}</h5>
+                <span class="h1 font-weight-bold mb-0">{{viewBox?.value | number: '1.0-3'}}</span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                  <i class="fas fa-eye"></i>
+                </div>
+              </div>
+            </div>
+            <p class="mt-3 mb-0 text-muted text-sm">
+              <span class="text-success mr-2"><i class="fas fa-arrow-right"></i></span>
+              <span class="text-nowrap">Đã xem</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

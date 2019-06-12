@@ -1,0 +1,48 @@
+<div class="container">
+  <form (submit)="createLike(formCreate)" #formCreate="ngForm">
+    <h1 >THÊM MỚI</h1>
+    <div class="row">
+      <div class="col-md-4">
+        <label for ="nameCamp">Tên chiến dịch : </label>
+        <input type="text" #title="ngModel" class="form-control" placeholder="Mời bạn nhập tên chiến dịch" [(ngModel)]="nameCamp" name="nameCamp" required   >
+        <div *ngIf="title.errors && (title.dirty || title.touched)" class="thongbao">
+            <div [hidden]="!title.errors.required">
+              <i class="fa fa-times-circle" style="color: red;size:12px"></i>Xin vui lòng nhập đủ dữ liệu!
+            </div>
+            <!-- <div [hidden]="!title.errors.minlength">
+              Title must be at least 5 characters long.
+            </div>
+            <div [hidden]="!title.errors.maxlength">
+              Title cannot be more than 30 characters long.
+            </div> -->
+          </div>
+      </div><br />
+      <div class="col-md-4">
+        <label for="url">Link chiến dịch : </label><input type="text"  #url="ngModel" class="form-control " placeholder="Mời bạn nhập link chiến dịch" [(ngModel)]="linkChiendich" name="linkChiendich" required pattern="https?://.+" >
+        <div *ngIf="url.errors && (url.dirty || url.touched)" class="thongbao">
+            <div [hidden]="!url.errors.required">
+              <i class="fa fa-times-circle" style="color: red;size:12px"></i>Xin vui lòng nhập đủ dữ liệu!
+            </div>
+            <div [hidden]="!url.errors.pattern">
+              <i class="fa fa-times-circle" style="color: red;size:12px"></i>Phải là một đường dẫn hợp lệ
+            </div>
+          </div>
+      </div><br />
+      <div class="col-md-4">
+        <label>Tổng số lượt like : </label>
+        <input type="text" class="form-control" placeholder="Vui lòng nhập tổng số lượt bình luận" #num="ngModel"
+          [(ngModel)]="currentLike" name="num" required pattern="^[0-9]\d*$" />
+        <div *ngIf="num.errors && (num.dirty || num.touched)" class="thongbao">
+          <div [hidden]="!num.errors.required">
+            <i class="fa fa-times-circle" style="color: red;size:12px"></i>Xin vui lòng nhập đủ dữ liệu!
+          </div>
+          <div [hidden]="!num.errors.pattern">
+            <i class="fa fa-times-circle" style="color: red;size:12px"></i>Chỉ được nhập số
+          </div>
+        </div>
+      </div><br />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success" [disabled]="formCreate.invalid">Tạo mới</button>
+  </form>
+</div>

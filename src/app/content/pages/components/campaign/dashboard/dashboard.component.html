@@ -1,0 +1,6 @@
+<div class="container-fluid" *ngIf="webboxData.length > 0">
+  <m-webbox [webboxData]="webboxData"></m-webbox>
+ </div>
+ <div class="container" *ngIf="chartData.length > 0">
+  <m-chart [chartData] = "chartData"></m-chart>
+</div>
